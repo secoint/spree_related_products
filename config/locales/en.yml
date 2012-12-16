@@ -10,3 +10,6 @@ en:
   name_or_sku: Name or SKU
   manage_relation_types: Manage relation types
   no_relation_types: You need to configure Realtion Types before you can use this feature.
+  both_directions: Applies to both directions
+  product_related_to: "This product is related to"
+  product_relatable_to: "This product is relatable to"
