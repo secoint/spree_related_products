@@ -17,6 +17,12 @@
     <%= f.text_area :description, {:cols => 60, :rows => 2, :class => 'fullwidth'} %>
     <%= error_message_on :relation_type, :description %>
   <% end %>
+  
+  <%= f.field_container :both_directions do %>
+    <%= f.check_box :both_directions %>
+    <%= f.label :both_directions, t("both_directions") %><br />
+    <%= error_message_on :relation_type, :both_directions %>
+  <% end %>
 
 <% end %>
 

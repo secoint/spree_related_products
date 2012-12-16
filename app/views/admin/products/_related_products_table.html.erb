@@ -1,3 +1,4 @@
+<h3><%= t('product_related_to') %>:</h3>
 <table class="index">
   <thead>
     <tr>
@@ -16,6 +17,30 @@
         <% if false #Spree::Extension.descendants.map(&:to_s).include? "AutomaticCouponsExtension" %>
           <td><%= relation.discount_amount != 0 ? number_to_currency(relation.discount_amount) : "-" %></td>
         <% end %>
+        <td><%= relation.relation_type.name %></td>
+        <td width="70px">
+          <%= link_to_delete relation, {:url => admin_product_relation_url(relation.relatable, relation)} %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3><%= t('product_relatable_to') %>:</h3>
+<table class="index">
+  <thead>
+    <tr>
+      <th><%= t('name') %></th>
+      <th><%= t('discount_amount') %></th>
+      <th><%= t('type') %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% product.related_tos.each do |relation| %>
+      <tr id="<%= dom_id relation %>">
+        <td><%= relation.relatable.name %></td>
+        <td><%= relation.discount_amount != 0 ? number_to_currency(relation.discount_amount) : "-" %></td>
         <td><%= relation.relation_type.name %></td>
         <td width="70px">
           <%= link_to_delete relation, {:url => admin_product_relation_url(relation.relatable, relation)} %>
